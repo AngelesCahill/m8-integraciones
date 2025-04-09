@@ -38,7 +38,10 @@ app.get('/users/:id', (req, res) => {
   }
 });
 
-export default app;
-
 const PORT = 3000;
-app.listen(PORT, () => console.log(`API is running on port ${PORT}`));
+
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => console.log(`API is running on port ${PORT}`));
+}
+
+export default app;
